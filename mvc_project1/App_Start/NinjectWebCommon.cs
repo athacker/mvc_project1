@@ -64,10 +64,13 @@ namespace mvc_project1.App_Start
         private static void RegisterServices(IKernel kernel)
         {
 
+             
+#if DEBUG
+            kernel.Bind<IMailService>().To<MockMailService>().InRequestScope();
+#else
+
             kernel.Bind<IMailService>().To<MailService>().InRequestScope();
-
-
-
+#endif
         }        
     }
 }
