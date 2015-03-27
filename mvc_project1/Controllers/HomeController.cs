@@ -34,10 +34,20 @@ namespace mvc_project1.Controllers
             return View();
         }
 
+
+
+         
         public ActionResult Contact()
         {
             ViewBag.Title = "Developer Contact Information";
             ViewBag.Message = "Andrea Thacker";
+            return View();
+        }
+
+
+
+        [Authorize]
+        public ActionResult Comments() {
             return View();
         }
 
