@@ -13,11 +13,21 @@ namespace mvc_project1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+             routes.MapRoute(
+              name:"Comments",
+                 url:"Comments",
+                 defaults: new { controller= "Home", action = "Comments" }
+             );
+
+ 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
+
+        public static object controller { get; set; }
     }
 }
