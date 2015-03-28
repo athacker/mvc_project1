@@ -21,13 +21,44 @@ namespace mvc_project1.Controllers
             _repo = repo;
         }
 
-        /// <summary>
-        /// Supports Get restful call for Feedback
-        /// </summary>
-        /// <returns></returns>
+        
+        /// RESTful GET feedback collection
         public IEnumerable<Feedback> Get() {
             return _repo.GetFeedback().OrderByDescending(t => t.CommentDate ).Take(50) ;
        }
+
+        //  RESTful POST feedback
+        public HttpResponseMessage Post([FromBody]Feedback newFeedback) {
+
+            if (newFeedback.CommentDate == default(DateTime)) {
+                newFeedback.CommentDate = DateTime.UtcNow;
+            }
+
+            if (_repo.AddFeedback(newFeedback) && _repo.Save())
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, newFeedback);//201 -- success
+            }
+            else {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
