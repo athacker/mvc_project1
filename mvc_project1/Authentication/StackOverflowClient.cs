@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace mvc_project1.Models
+namespace mvc_project1.Authentication
 {
     public class StackOverflowClient : DotNetOpenAuth.AspNet.Clients.OAuth2Client 
     {

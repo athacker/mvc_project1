@@ -9,7 +9,7 @@ using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using mvc_project1.Filters;
-using mvc_project1.Models;
+using mvc_project1.Authentication;
 
 namespace mvc_project1.Controllers
 {

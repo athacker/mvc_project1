@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using mvc_project1.Models;
+using mvc_project1.Authentication;
 using mvc_project1.Services;
 
 

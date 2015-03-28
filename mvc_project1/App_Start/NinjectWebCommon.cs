@@ -6,12 +6,13 @@ namespace mvc_project1.App_Start
     using System;
     using System.Web;
     using Services;
-    using Services;
+    
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
+    using WebApiContrib.IoC.Ninject;
 
     public static class NinjectWebCommon 
     {
@@ -48,6 +49,11 @@ namespace mvc_project1.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+                // Inject allowing api/feedback to be wired in.
+                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver =  new NinjectResolver(kernel);
+ 
+
                 return kernel;
             }
             catch
@@ -71,6 +77,10 @@ namespace mvc_project1.App_Start
 
             kernel.Bind<IMailService>().To<MailService>().InRequestScope();
 #endif
+            kernel.Bind<mvc_project1.Data.Mvc_Project1Context>().To<mvc_project1.Data.Mvc_Project1Context>().InRequestScope();
+            kernel.Bind<mvc_project1.Data.IMvc_Project1Repository>().To<mvc_project1.Data.Mvc_Project1Repository>().InRequestScope();  
+
+
         }        
     }
 }

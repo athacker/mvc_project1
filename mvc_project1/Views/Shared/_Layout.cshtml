@@ -6,8 +6,11 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/bootstrap/css")
-        @Styles.Render("~/Content/bootstrap/fonts")
+        <link href="~/Content/boostrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/boostrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+
+
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
@@ -53,12 +56,16 @@
 
 
 
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+
+        <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+        <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+
 
 
         @Scripts.Render("~/bundles/jquery")
-
+        @Scripts.Render("~/bundles/bootstrap")
 
 
 

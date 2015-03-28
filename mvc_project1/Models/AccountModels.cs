@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace mvc_project1.Models
+namespace mvc_project1.Authentication
 {
     public class UsersContext : DbContext
     {

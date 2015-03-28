@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using mvc_project1.Models;
+using mvc_project1.Authentication;
 using mvc_project1.Services;
+using mvc_project1.Data;
+
 
 namespace mvc_project1.Controllers
 {
     public class HomeController : Controller
     {
         //inject via NinjectwebCommon -- RegisterServices Method
-        public HomeController(IMailService mailService)
+        public HomeController(IMailService mailService, IMvc_Project1Repository repository)
         {
             _mail = mailService;
+            _repo = repository;
         }
 
         private IMailService _mail;
         private static string DEVELOPER_EMAIL = "grthacker@comcast.net";
-       // private static string DEVELOPER_EMAIL = "andrea.thacker@outlook.com";
+        private IMvc_Project1Repository _repo;
+        
 
         public ActionResult Index()
         {
@@ -48,7 +52,11 @@ namespace mvc_project1.Controllers
 
         [Authorize]
         public ActionResult Comments() {
-            return View();
+
+            var feedback = _repo.GetFeedback().OrderByDescending(t => t.CommentDate ).Take(25).ToList();
+
+
+            return View(feedback);
         }
 
 

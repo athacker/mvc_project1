@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
-using mvc_project1.Models;
+using mvc_project1.Authentication;
 
 namespace mvc_project1.Filters
 {
