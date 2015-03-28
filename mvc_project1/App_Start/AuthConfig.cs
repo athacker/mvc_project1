@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
 using mvc_project1.Models;
+using mvc_project1.Services;
+
 
 namespace mvc_project1
 {
@@ -28,6 +30,9 @@ namespace mvc_project1
 
             OAuthWebSecurity.RegisterGoogleClient();
             OAuthWebSecurity.RegisterYahooClient();
+            OAuthWebSecurity.RegisterClient(new StackOverflowClient("https://stackexchange.com/oauth", "Stack Overflow"), "Stack Overflow", new Dictionary<string, object>());
+           
+
         }
     }
 }
