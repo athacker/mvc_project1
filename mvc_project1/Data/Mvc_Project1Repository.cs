@@ -22,5 +22,38 @@ namespace mvc_project1.Data
         {
             return _ctx.Replies.Where(r => r.FeedbackId == feedbackId);
         }
+
+
+        public bool Save()
+        {
+            try {
+                return _ctx.SaveChanges() > 0;
+             }
+            catch (Exception e) {
+
+                //@TODO -- LOG THIS PROPERLY
+                System.IO.TextWriter errorWriter = Console.Error;
+                errorWriter.WriteLine(e.Message);
+                return false;
+             }
+
+        }
+
+        public bool AddFeedback(Feedback newFeedback)
+        {
+            try
+            {
+                _ctx.Feedback.Add(newFeedback);
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                //@TODO -- LOG THIS PROPERLY
+                System.IO.TextWriter errorWriter = Console.Error;
+                errorWriter.WriteLine(e.Message);
+                return false;
+            }
+        }
     }
 }

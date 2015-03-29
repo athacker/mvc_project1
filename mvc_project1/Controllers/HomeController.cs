@@ -26,15 +26,18 @@ namespace mvc_project1.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            ViewBag.Message = "";
+             return View();
         }
+
+
+
+
+        //Methods below are Not Used... 
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
+            ViewBag.Message = "";
             return View();
         }
 
@@ -51,12 +54,10 @@ namespace mvc_project1.Controllers
 
 
         [Authorize]
-        public ActionResult Comments() {
+        public ActionResult Feedback() {
 
             var feedback = _repo.GetFeedback().OrderByDescending(t => t.CommentDate ).Take(25).ToList();
-
-
-            return View(feedback);
+             return View(feedback);
         }
 
 

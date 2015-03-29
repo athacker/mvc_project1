@@ -28,13 +28,15 @@ namespace mvc_project1.Controllers
        }
 
         //  RESTful POST feedback
-        public HttpResponseMessage Post([FromBody]Feedback newFeedback) {
+        public HttpResponseMessage Post([FromBody]string _comment) {
 
-            if (newFeedback.CommentDate == default(DateTime)) {
-                newFeedback.CommentDate = DateTime.UtcNow;
-            }
-
-            if (_repo.AddFeedback(newFeedback) && _repo.Save())
+            Feedback newFeedback = new Feedback( );
+            newFeedback.CommentDate = DateTime.UtcNow;
+            newFeedback.Comment = _comment;
+         //   newFeedback.User = User.Identity.Name;//set to logged on user.
+            newFeedback.User = "grthacker@comcast.net";
+       
+          if (_repo.AddFeedback(newFeedback) && _repo.Save())
             {
                 return Request.CreateResponse(HttpStatusCode.Created, newFeedback);//201 -- success
             }
