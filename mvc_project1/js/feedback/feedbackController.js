@@ -7,7 +7,7 @@ angular.module('app').controller('feedbackController', function ($scope, feedbac
     var vm = this;
 
     vm.feedback = [];
-    vm.newFeedback={};
+    vm.newFeedback={id:null, commentDate: null, user:null, comment: null};
     vm.initForm = initForm;
     vm.postFeedback = postFeedback;
 
@@ -29,7 +29,12 @@ angular.module('app').controller('feedbackController', function ($scope, feedbac
 
 
     function postFeedback() {
-       feedbackService.postFeedback(vm.newFeedback);
+        
+        feedbackService.postFeedback(vm.newFeedback).then(function (response) {
+            alert(JSON.stringify(response))
+        }, function () {
+            console.log("Error posting feedback data "  )
+        });
     }
 
 

@@ -11,7 +11,17 @@ var FeedbackService = function ($q, $http) {
 
 
     function postFeedback(feedback) {
-     console.log("Save Feedback."  + feedback);
+        console.log("Post Feedback:" + feedback);
+        var deferred = $q.defer();
+
+        $http.post("/api/Feedback", feedback).then(function (response) {
+            alert(JSON.stringify( response ));
+            deferred.resolve(response);
+        },
+           function () {
+               deferred.reject("Issue posting feedback data");
+           });;
+        
     }
 
     function getFeedback() {
