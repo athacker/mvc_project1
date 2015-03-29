@@ -1,6 +1,6 @@
 ﻿<div data-ng-controller="feedbackController as vm" data-ng-init="vm.initForm()">
     <div class="container">
-         
+
 
         @if (@Request.IsAuthenticated)
         {
@@ -14,7 +14,7 @@
                             <textarea cols="15" rows="3" id="comments" name="comments" data-ng-model="vm.newFeedback.comment" placeholder="Enter Developer Feedback" required></textarea>
                         </div>
                         <div class="col-sm-5">
-                           <br/><br />
+                            <br /><br />
                             <button class="btn btn-default" ng-disabled="commentsForm.$invalid" data-ng-click="vm.postFeedback()">Post Feedback</button>
                         </div>
                     </form>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         }
-        
+
         <h2>Developer Feedback (must be logged in to post)</h2>
 
         <div class="row">
