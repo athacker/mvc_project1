@@ -28,9 +28,10 @@ namespace mvc_project1
             //    appId: "",
             //    appSecret: "");
 
-            OAuthWebSecurity.RegisterGoogleClient();
-            OAuthWebSecurity.RegisterYahooClient();
-            OAuthWebSecurity.RegisterClient(new StackOverflowClient("https://stackexchange.com/oauth", "Stack Overflow"), "Stack Overflow", new Dictionary<string, object>());
+       //     OAuthWebSecurity.RegisterGoogleClient();
+      //      OAuthWebSecurity.RegisterYahooClient();
+           
+            OAuthWebSecurity.RegisterClient(new StackOverflowClient("https://stackexchange.com/oauth/&client_id=4537", "Stack Overflow"), "Stack Overflow", new Dictionary<string, object>());
            
 
         }

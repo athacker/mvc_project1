@@ -30,7 +30,7 @@ namespace mvc_project1.Authentication
         {
             return new Uri(
                         AuthorizationEP
-                        + "?client_id=4537" 
+                        + "?client_id=" + _appId
                         + "&redirect_uri=" + HttpUtility.UrlEncode(returnUrl.ToString())
                         + "&no_expiry"
                        

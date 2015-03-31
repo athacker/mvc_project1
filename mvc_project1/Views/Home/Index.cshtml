@@ -2,15 +2,15 @@
     <div class="container">
          
 
-        @if (@Request.IsAuthenticated)
-        {
+      
+        
 
             <div class="row">
                 <div class="col-sm-12">
                     <form role="form" name="commentsForm">
 
                         <div class="col-sm-7 form-group" data-ng-class="{'has-error': commentsForm.comments.$error.required}">
-                            <label for="comments">Feedback</label>
+                            <label for="comments"> </label>
                             <textarea cols="15" rows="3" id="comments" name="comments" data-ng-model="vm.newFeedback.comment" placeholder="Enter Developer Feedback" required></textarea>
                         </div>
                         <div class="col-sm-5">
@@ -21,21 +21,21 @@
 
                 </div>
             </div>
-        }
+       
         
-        <h2>Developer Feedback (must be logged in to post)</h2>
+        <h3>Developer Feedback </h3>
 
         <div class="row">
 
             <div class="col-sm-12">
                 <div class="col-sm-3"> <h4>Date</h4></div>
-                <div class="col-sm-3"> <h4>Reviewer</h4></div>
+                
                 <div class="col-sm-6"> <h4>Comments</h4></div>
             </div>
 
             <div class="col-sm-12" data-ng-repeat="info in vm.feedback">
                 <div class="col-sm-3"> {{info.commentDate| date:mediumDate }}</div>
-                <div class="col-sm-3"> {{info.user}} </div>
+             
                 <div class="col-sm-6"> {{info.comment }}</div>
                 <div>
                      

@@ -38,6 +38,7 @@ angular.module('app').controller('feedbackController', function ($scope, feedbac
          
         feedbackService.postFeedback(vm.newFeedback).then(function (response) {
             vm.getFeedback();
+            vm.newFeedback = {};
         }, function () {
             console.log("Error posting feedback data "  )
         });

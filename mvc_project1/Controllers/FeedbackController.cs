@@ -33,6 +33,10 @@ namespace mvc_project1.Controllers
  
             newFeedback.CommentDate = DateTime.UtcNow;
             newFeedback.User = User.Identity.Name;//set to logged on user.
+
+            if (null == newFeedback.User) {
+                newFeedback.User = "Fix This";
+            }
         
           if (_repo.AddFeedback(newFeedback) && _repo.Save())
             {
